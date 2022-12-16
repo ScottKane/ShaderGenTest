@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <RootNamespace>Vent.Engine.Generators</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.4.0" PrivateAssets="all" />
+        <PackageReference Include="ShaderGen" Version="1.2.0-beta3" PrivateAssets="all" GeneratePathProperty="true" />
+        <PackageReference Include="ShaderGen.Primitives" Version="1.2.0-beta3" PrivateAssets="all" GeneratePathProperty="true" />
+    </ItemGroup>
+    
+    <PropertyGroup>
+        <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+    </PropertyGroup>
+    
+    <Target Name="GetDependencyTargetPaths">
+        <ItemGroup>
+            <TargetPathWithTargetPlatformMoniker Include="$(PKGShaderGen)\lib\netstandard2.0\ShaderGen.dll" IncludeRuntimeDependency="false" />
+            <TargetPathWithTargetPlatformMoniker Include="$(PKGShaderGen_Primitives)\lib\netstandard2.0\ShaderGen.Primitives.dll" IncludeRuntimeDependency="false" />
+        </ItemGroup>
+    </Target>
+
+<!--    <ItemGroup>-->
+<!--        <ProjectReference Include="../ShaderGen/ShaderGen.csproj" />-->
+<!--    </ItemGroup>-->
+
+</Project>

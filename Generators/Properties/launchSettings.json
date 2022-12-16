@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Shader Generator": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\Shaders\\Shaders.csproj"
+    }
+  }
+}
